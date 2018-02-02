@@ -1,0 +1,42 @@
+
+
+
+.navbars {
+	width: 12%;
+	height:1000px;
+    background: linear-gradient(#EC9335, #D9735D); /* 标准的语法（必须放在最后） */
+    margin-top: -20px;
+}
+
+.container {
+	padding: 0;
+	margin: 0;
+	width: auto;
+	height: auto;
+	
+}
+
+
+
+
+.head {
+	width: 13%;
+	height: 13%;
+	 background:#F6A45C;
+	font-size: 20px;
+	font-weight: 600;
+	text-align: center;
+	
+	color: rgba(255,255,255,1.5);	
+}
+.head_right {
+	text-align: right;
+	margin-right: 64px;
+	
+}
+
+.img_login_out {
+	width: 20px;
+	height: 20px;
+	margin-right: 32px;
+}

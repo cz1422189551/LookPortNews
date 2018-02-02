@@ -1,0 +1,26 @@
+.right {
+	
+	width: 87%;
+	height: 1000px;
+	float: right;
+	margin-top: -999px;
+	/*background-color:gainsboro;*/
+	border: none;
+	position:relative;
+	
+}
+
+.right_content {
+	float: left;
+	width: 96%;
+	height: auto;
+	
+	margin-top: 32px;
+	margin-left: 32px;
+	position: absolute;
+	
+}
+
+.margin16 {
+	margin-left: 16px;
+}

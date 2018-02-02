@@ -1,0 +1,80 @@
+#main-nav {
+margin-left: 1px;
+}
+#main-nav.nav-tabs.nav-stacked > li > a {
+padding: 10px 8px;
+font-size: 18px;	
+font-weight: 600;
+color: rgba(255,255,255,1.5);
+
+}
+#main-nav.nav-tabs.nav-stacked > li > a > span {
+
+}
+#main-nav.nav-tabs.nav-stacked > li.active > a, #main-nav.nav-tabs.nav-stacked > li > a:hover {
+
+}
+#main-nav.nav-tabs.nav-stacked > li.active > a, #main-nav.nav-tabs.nav-stacked > li > a:hover > span {
+
+}
+#main-nav.nav-tabs.nav-stacked > li {
+margin-bottom: 4px;
+}
+/*定义二级菜单样式*/
+.secondmenu a {
+font-size: 18px;
+color: rgba(255,255,255,1.5);	
+text-align: center;
+
+}
+.navbar-static-top {
+background-color: #212121;
+margin-bottom: 5px;
+}
+.navbar-brand {
+background: url('') no-repeat 10px 8px;
+display: inline-block;
+vertical-align: middle;
+padding-left: 50px;
+color: #fff;
+}
+
+.navbar-navss li:hover {
+	display: block;
+    background-color: #398439;
+    padding: 10px;
+}
+
+/*定义展开箭头*/
+.nav-header.collapsed > span.glyphicon-chevron-toggle:before {
+content: "\e114";
+font-size: 8px;
+}
+.nav-header > span.glyphicon-chevron-toggle:before {
+content: "\e113";
+font-size: 8px;
+
+}
+.glyphicon {
+	font-size: 8px;
+	margin-right: 8px;
+}
+
+
+.secondmenu li.active {
+background-color: #eee;
+border-color: #428bca;
+}
+.left_nav {
+	padding: 20px;
+	margin-top: -20px;
+	width: 13%;
+	height: 1000px;
+	background: linear-gradient(#F6A45C, #DF7962); /* 标准的语法（必须放在最后） */
+}
+
+.one_level {
+	font-size: 18px;
+	color: rgba(255,255,255,1.5);	
+}
+

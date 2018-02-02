@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LookPortNews.iml" filepath="$PROJECT_DIR$/.idea/modules/LookPortNews.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LookPortNews_main.iml" filepath="$PROJECT_DIR$/.idea/modules/LookPortNews_main.iml" group="LookPortNews" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LookPortNews_test.iml" filepath="$PROJECT_DIR$/.idea/modules/LookPortNews_test.iml" group="LookPortNews" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/newscatch.iml" filepath="$PROJECT_DIR$/.idea/modules/newscatch.iml" group="newscatch" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/newscatch/newscatch_main.iml" filepath="$PROJECT_DIR$/.idea/modules/newscatch/newscatch_main.iml" group="newscatch" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/newscatch/newscatch_test.iml" filepath="$PROJECT_DIR$/.idea/modules/newscatch/newscatch_test.iml" group="newscatch" />
+    </modules>
+  </component>
+</project>

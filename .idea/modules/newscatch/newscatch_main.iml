@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":newscatch:main" external.linked.project.path="$MODULE_DIR$/../../../newscatch" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="com.cz" external.system.module.type="sourceSet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="web" name="Web Gradle : newscatch-1.0-SNAPSHOT.war">
+      <configuration>
+        <webroots>
+          <root url="file://E:\LookPortNewsServer\newscatch\src\main\webapp" relative="/" />
+        </webroots>
+        <sourceRoots />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/../../../newscatch/out/production/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../newscatch/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../newscatch/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../newscatch/src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.0.46" level="application_server_libraries" />
+  </component>
+</module>
