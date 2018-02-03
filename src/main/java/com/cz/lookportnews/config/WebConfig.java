@@ -1,5 +1,7 @@
 package com.cz.lookportnews.config;
 
+import com.cz.lookportnews.config.interceptor.LoginInterceptor;
+import com.google.gson.Gson;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -9,10 +11,9 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import sun.rmi.runtime.Log;
 
 import java.io.IOException;
 
@@ -22,25 +23,6 @@ import java.io.IOException;
         basePackages = "com.cz.lookportnews.controller")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-
-
-//    /**
-//     * 设置Spring的文件上传解析器
-//     * 不依赖Servlet3.0容器
-//     * @return
-//     * @throws IOException
-//     */
-//    @Bean
-//    public CommonsMultipartResolver getCommonsMultipartResolver() throws IOException {
-//        CommonsMultipartResolver multipartResolver =new CommonsMultipartResolver();
-//
-//        multipartResolver.setUploadTempDir(
-//                new FileSystemResource(tempFilePath)
-//        );
-//        multipartResolver.setMaxUploadSize(1024*1024*2);
-//        multipartResolver.setMaxInMemorySize(0);
-//        return multipartResolver;
-//    }
 
 
     @Bean
@@ -55,21 +37,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return stringHttpMessageConverter;
     }
 
-
-//
-//    /**
-//     * 配置兼容Servlet3.0的 文件上传解析器
-//     * 具体配置参数,在DispatchServlet中实现
-//     */
-//    @Bean
-//    public StandardServletMultipartResolver  getStandardServletMultipartResolver(){
-//        return new StandardServletMultipartResolver();
-//    }
-
-
-
-
-
+    @Bean
+    public Gson getGson(){
+        return new Gson();
+    }
 
     /**
      * 配置jsp视图解析器
@@ -84,7 +55,19 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return resourceViewResolver;
     }
 
-    /**
+//    @Bean
+//    public LoginInterceptor loginInterceptor(){
+//        return new LoginInterceptor();
+//    }
+
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(loginInterceptor())
+//                .addPathPatterns("/")
+//                .excludePathPatterns("/img");
+//    }
+
+        /**
      * 使用默认的HandlerAdapter
      * 对静态资源实行懒加载
      * @param configurer
@@ -93,4 +76,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
+//
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        registry.addResourceHandler("/img/**")
+//                .addResourceLocations("/img/");
+//    }
 }

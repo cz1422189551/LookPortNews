@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -6,11 +7,11 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="plugs/bootstrap/css/left_page.css" />
-		<link rel="stylesheet" href="plugs/bootstrap/css/bootstrap.css" />
-		<link rel="stylesheet" href="plugs/bootstrap/css/right_page.css" />
-		<link rel="stylesheet" type="text/css" href="plugs/bootstrap/css/base.css" />
-		<link rel="stylesheet" type="text/css" href="plugs/bootstrap/css/left.css" />
+		<link rel="stylesheet" href="<%=basePath%>plugs/bootstrap/css/left_page.css" />
+		<link rel="stylesheet" href="<%=basePath%>plugs/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="<%=basePath%>plugs/bootstrap/css/right_page.css" />
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>plugs/bootstrap/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>plugs/bootstrap/css/left.css" />
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -32,8 +33,8 @@
 				<tr>
 					<td class="head">新闻管理系统</td>
 					<td class="head_right">
-						<button class="btn-link head_right">admin</button>
-						<img class="img_login_out" src="img/login_out.png" />
+						<button class="btn-link head_right">${requestScope.admin.adminName}</button>
+						<img class="img_login_out" src="../../img/login_out.png" />
 					</td>
 
 				</tr>
@@ -95,7 +96,7 @@
 
 			<div class="right_content"/>
 
-			<iframe id="iframe" src="admin_user.jsp	" name="mainFrame"
+			<iframe id="iframe" src="../welcome.jsp" name="mainFrame"
 					width="100%" scrolling="no" height="100%" frameborder="0" onload="iframeLoad()">
 
 			</iframe>

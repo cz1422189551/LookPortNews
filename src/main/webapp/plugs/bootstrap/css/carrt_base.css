@@ -152,6 +152,7 @@
 /*登录页输入框输入的文字样式*/
 .login-user, .login-psd {
     color: rgb(35, 42, 58);
+
 }
 
 .login-btn {
@@ -201,16 +202,16 @@
     position: absolute;
     top: 96px;
     left: 46px;
-
     width: 22px;
     height: 25px;
 
-    background: url("/img/loginuser.png") 0 0;
+    background: url("../../../img/loginuser.png") 0 0;
 
 }
 
 .login-user:focus + .login-user-icon {
-    background: url("/img/loginuser-active.png") 0 0;
+
+    background: url("../../../img/loginuser-active.png") 0 0;
 }
 
 /*
@@ -231,15 +232,15 @@ input:focus {border:1px solid blue;}
     top: 156px;
     left: 46px;
 
-    width: 22px;
+    width: 23px;
     height: 25px;
 
-    background: url("/img/loginpsd.png") 0 0;
+    background: url("../../../img/loginpsd.png") 0 0;
 
 }
 
 .login-psd:focus + .login-psd-icon {
-    background: url("/img/loginpsd-active.png") 0 0;
+    background: url("../../../img/loginpsd-active.png") 0 0;
 }
 
 .topbar-content {
@@ -321,4 +322,9 @@ input:focus {border:1px solid blue;}
     border-bottom: none;
 
     font-size: 16px;
+}
+
+.input-left50 {
+    font-size:50px;
+    padding-left: 100px;
 }

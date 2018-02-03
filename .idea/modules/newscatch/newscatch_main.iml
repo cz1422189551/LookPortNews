@@ -6,7 +6,6 @@
         <webroots>
           <root url="file://E:\LookPortNewsServer\newscatch\src\main\webapp" relative="/" />
         </webroots>
-        <sourceRoots />
       </configuration>
     </facet>
   </component>
@@ -19,6 +18,5 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.0.46" level="application_server_libraries" />
   </component>
 </module>

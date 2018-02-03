@@ -13,22 +13,21 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebFilter(
-//        urlPatterns="/*",
+        urlPatterns="/*",
         filterName="myFilter",
-        dispatcherTypes= DispatcherType.REQUEST,
-        initParams=
-        @WebInitParam(name="nologinpath",value=".css;.js;.img;.gif;.jpg;.png;login_index.jsp;LoginServlet;fail.jsp;")
+        dispatcherTypes= DispatcherType.REQUEST
+//        initParams=
+//        @WebInitParam(name="nologinpath",value=".css;.js;.img;.gif;.jpg;.png;login.jsp;login;fail.jsp;")
 )
 public class MyFilter implements Filter {
 
-    //过滤配置
-    private FilterConfig config;
 
+
+    private static final String REGEX="login_out.png;.css;.js;.img;.gif;.jpg;.png;login.jsp;login;fail.jsp;font;";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
-        config=filterConfig;
     }
 
     @Override
@@ -38,9 +37,9 @@ public class MyFilter implements Filter {
         HttpServletResponse httpResponse =(HttpServletResponse) servletResponse;
         HttpSession session =httpRequest.getSession();
 
-        String nologinpath=config.getInitParameter("nologinpath");
+        System.out.println(httpRequest.getRequestURI());
 
-        String[] params=nologinpath.split(";");
+        String[] params=REGEX.split(";");
         for(String s: params)
         {
 
@@ -59,7 +58,7 @@ public class MyFilter implements Filter {
         } else
         {
             System.err.println("Session过期重新登陆");
-            httpResponse.sendRedirect(httpRequest.getContextPath()+"/webpage/tedu/login_index.jsp");
+            httpResponse.sendRedirect(httpRequest.getContextPath()+"/login.jsp");
         }
 
     }

@@ -9,60 +9,62 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+
 %>
 <html>
-<head>
+<head >
     <title>登陆页面</title>
 
+
+
+
+    <!--引入样式的先后问题，会产生不同的影响-->
+    <link rel="stylesheet" href="<%=basePath%>plugs/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="<%=basePath%>plugs/bootstrap/css/orange.css" />
     <link rel="stylesheet" href="<%=basePath%>plugs/bootstrap/css/carrt_base.css" />
     <link rel="stylesheet" href="<%=basePath%>plugs/bootstrap/css/public.css" />
+    <!-- jq -->
+    <script type="text/javascript" src="<%=basePath%>js/jquery-3.1.1.min.js"></script>
 
-
-
+    <script type="text/javascript" src="<%=basePath%>/plugs/bootstrap/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="wrapper">
 
 <div class="bg-img ">
     <div class="login-container  container">
-        <!--<div class="row">-->
+        <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">
                 <div>
                     <img src="img/login-logo.png" class="login-circle-img">
                 </div>
                 <div class="panel-body login-panel">
-                    <form name="loginForm" class="login-from" novalidate>
-                        <div class="form-group"
-                             ng-class="{'has-success': loginForm.username.$valid && loginForm.username.$dirty, 'has-error': loginForm.username.$invalid && loginForm.username.$dirty}">
-                            <input class="form-control input-lg pd-left-50 login-user" placeholder="用户名"
-                                   name="username" autofocus="" ng-model="vm.name" maxlength="16"
-                                   pattern="^[A-Za-z\d]+$" ng-minlength="5" required>
+                    <form  action = "<%=basePath%>login/admin" name="loginForm"
+                          method="post" class="login-from" >
+                        <div class="form-group">
+                            <input class="form-control input-lg pd-left-50 login-user  " placeholder="用户名"
+                                   name="adminName"  maxlength="16">
                             <div class="login-user-icon"></div>
                         </div>
-                        <div class="form-group"
-                             ng-class="{'has-success': loginForm.password.$valid && loginForm.password.$dirty, 'has-error': loginForm.password.$invalid && loginForm.password.$dirty}">
+                        <div class="form-group">
                             <input class="form-control input-lg pd-left-50 login-psd" placeholder="密码"
                                    name="password"
-                                   type="password" ng-model="vm.pwd" minlength="6" maxlength="16"
-                                   ng-pattern="/^\w{6,16}$/" required>
+                                   type="password"  minlength="6" maxlength="16">
                             <div class="login-psd-icon"></div>
                         </div>
-                        <span class="error" ng-show="loginForm.username.$invalid && loginForm.username.$dirty">
-                                * 请输入5位到16位的由英文或数字组成的账号
+                        <span class="error">
+                            <%--${sessionScope['org.springframework.web.servlet.support.SessionFlashMapManager.FLASH_MAPS'][0]['login']}  --%>
+
+                          ${param.login}
                             </span>
-                        <span class="error" ng-show="loginForm.password.$invalid && loginForm.password.$dirty">
-                                * 请输入6到16位数字、字母或下划线组成的密码
-                            </span>
-                        <p class="text-danger">{{vm.errorTip}}</p>
-                        <button class="btn btn-lg btn-submit btn-block login-btn" ng-click="vm.submit()"
-                                ng-disabled="loginForm.$invalid">登录
-                        </button>
+
+                        <input type="submit" class="btn btn-lg btn-submit btn-block login-btn" value="登陆">
+                        </input>
                     </form>
                 </div>
             </div>
         </div>
-        <!--</div>-->
+        </div>
     </div>
 </div>
 
