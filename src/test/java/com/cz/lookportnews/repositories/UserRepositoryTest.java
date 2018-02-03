@@ -1,37 +1,19 @@
 package com.cz.lookportnews.repositories;
 
-import com.cz.lookportnews.config.MyDispatcherServlet;
 import com.cz.lookportnews.config.ServiceConfig;
 import com.cz.lookportnews.entity.*;
 import com.cz.lookportnews.entity.admin.Admin;
 import com.cz.lookportnews.entity.admin.Role;
 import com.cz.lookportnews.repositories.admin.AdminRepository;
-import com.cz.lookportnews.services.AdminServices;
+import com.cz.lookportnews.services.admin.AdminServices;
+import com.cz.lookportnews.services.admin.RoleServices;
 import com.cz.lookportnews.util.GsonUtils;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import ikidou.reflect.TypeBuilder;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.BlockJUnit4ClassRunner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.data.jpa.domain.Specification;
-import org.springframework.data.jpa.domain.Specifications;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -206,17 +188,24 @@ public class UserRepositoryTest {
 
     @Test
     public void testAdminAuthorization () {
-        Admin admin  = new Admin();
-        admin.setAdminName("admin");
+        Admin admin  =null;
+
+
         AdminServices adminServices = (AdminServices) annotationContext.getBean("adminServices");
-        Role role = new Role();
-        role.setId(1L);
-        Role role2 = new Role();
-        List<Role> roles = new ArrayList<>();
-        roles.add(role);
-        roles.add(role2);
-        Admin authorization = adminServices.authorization(admin, roles);
-        System.out.println(authorization);
+
+        admin=adminServices.findOne("admin");
+
+
+        RoleServices roleServices = (RoleServices) annotationContext.getBean("roleServices");
+
+
+        List<Role> roles =null;
+
+        roles=roleServices.findAllRole();
+
+
+        Admin admin1 = adminServices.authorizationSave(admin, roles);
+        System.out.println(admin1);
     }
 
 

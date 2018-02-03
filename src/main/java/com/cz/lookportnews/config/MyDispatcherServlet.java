@@ -50,10 +50,10 @@ public class MyDispatcherServlet extends AbstractAnnotationConfigDispatcherServl
         return super.getServletName();
     }
 
-    @Override
-    protected Filter[] getServletFilters() {
-        return new Filter[]{new MyFilter()};
-    }
+//    @Override
+//    protected Filter[] getServletFilters() {
+//        return new Filter[]{new MyFilter()};
+//    }
 
     //    @Override
 //    protected Filter[] getServletFilters() {

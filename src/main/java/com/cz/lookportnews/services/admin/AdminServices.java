@@ -1,4 +1,4 @@
-package com.cz.lookportnews.services;
+package com.cz.lookportnews.services.admin;
 
 import com.cz.lookportnews.entity.admin.Admin;
 import com.cz.lookportnews.entity.admin.Role;
@@ -33,12 +33,33 @@ public class AdminServices {
      * @return
      */
     @Transactional
-    public Admin authorization(Admin admin , List<Role> roleList ){
-        admin.setRoleList(roleList);
-        //注意这里是保存操作，主键相同的情况下失效。
-        Admin updateAdmin = adminRepository.save(admin);
-        return updateAdmin;
+    public Integer authorization(Admin admin , List<Role> roleList ) {
+        Integer integer = adminRepository.authorization
+                (
+                admin.getAdminName(),
+                roleList
+                );
+        if(integer>0){
+            System.out.println("授权（更新）成功");
+        } else {
+            System.out.println("授权（更新) 失败");
+        }
+        return integer;
     }
 
+    /**
+     *  为admin 管理员 授权
+     * @return
+     */
+    @Transactional
+    public Admin authorizationSave(Admin admin , List<Role> roleList ) {
+        admin.setRoleList(roleList);
+        Admin save = adminRepository.save(admin);
+        return save;
+    }
+
+    public Admin findOne (String adminName) {
+        return adminRepository.findOne(adminName);
+    }
 
 }

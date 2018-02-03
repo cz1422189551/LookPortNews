@@ -12,7 +12,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -42,11 +42,74 @@ public class Function implements Serializable {
             ,fetch = FetchType.EAGER
     )
     @Fetch(FetchMode.SUBSELECT)
-//    @JsonBackReference
-    @JsonIgnoreProperties(value = {"multiMedia","parentFunction"})
-    //改评论的回复
+//    @JsonIgnoreProperties(value = {"multiMedia","parentFunction"})
+
     private List<Function> subFunctionList;
 
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public Integer getSerialNum() {
+        return serialNum;
+    }
+
+    public void setSerialNum(Integer serialNum) {
+        this.serialNum = serialNum;
+    }
+
+    public Integer getAccording() {
+        return according;
+    }
+
+    public void setAccording(Integer according) {
+        this.according = according;
+    }
+
+    public Function getFunction() {
+        return function;
+    }
+
+    public void setFunction(Function function) {
+        this.function = function;
+    }
+
+    public List<Function> getSubFunctionList() {
+        return subFunctionList;
+    }
+
+    public void setSubFunctionList(List<Function> subFunctionList) {
+        this.subFunctionList = subFunctionList;
+    }
 }
