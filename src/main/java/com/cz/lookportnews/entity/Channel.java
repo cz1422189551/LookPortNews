@@ -23,14 +23,10 @@ public class Channel implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
 
-    //栏目后缀url
-    private String suffixUrl;
-
-    //栏目前缀url，为顶级栏目才有前缀
-    private String prefixUrl;
 
     private String name;
 
+    private String url ;
 
     //自关联
     @ManyToOne(fetch = FetchType.EAGER)
@@ -46,12 +42,13 @@ public class Channel implements Serializable{
     )
     @Fetch(FetchMode.SUBSELECT)
 
-    @JsonIgnoreProperties(value = {"prefixUrl"})
+//    @JsonIgnoreProperties(value = {"prefixUrl"})
     private List<Channel>  children = new ArrayList<>();
 
 
     @OneToMany(cascade = CascadeType.ALL ,fetch = FetchType.LAZY)
     @JoinColumn(name="channelId")
+    @JsonBackReference
     private List<News>  newsList;
 
     public Long getId() {
@@ -62,13 +59,7 @@ public class Channel implements Serializable{
         this.id = id;
     }
 
-    public String getSuffixUrl() {
-        return suffixUrl;
-    }
 
-    public void setSuffixUrl(String suffixUrl) {
-        this.suffixUrl = suffixUrl;
-    }
 
     public String getName() {
         return name;
@@ -86,13 +77,7 @@ public class Channel implements Serializable{
         this.newsList = newsList;
     }
 
-    public String getPrefixUrl() {
-        return prefixUrl;
-    }
 
-    public void setPrefixUrl(String prefixUrl) {
-        this.prefixUrl = prefixUrl;
-    }
 
     public Channel getChannel() {
         return channel;

@@ -5,6 +5,7 @@ import com.cz.lookportnews.entity.Response;
 import com.cz.lookportnews.entity.User;
 
 import com.cz.lookportnews.services.Services;
+import com.cz.lookportnews.services.admin.AdminServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -25,14 +26,22 @@ public class AdminUserController {
     @Autowired
     Services<User> userServices;
 
+    @Autowired
+    AdminServices adminServices;
+
     @Value("${saveFilePath}")
     private String saveFilePath;
 
-    @RequestMapping(value = "/user" ,method=RequestMethod.GET)
+    @RequestMapping(value = "/userListPage" ,method=RequestMethod.GET)
     public String showUserHome(){
         return "admin_user";
     }
 
+
+    @RequestMapping(value = "/adminListPage" ,method=RequestMethod.GET)
+    public String showAdminPage(){
+        return "admin";
+    }
 
 
     @RequestMapping(
@@ -74,7 +83,26 @@ public class AdminUserController {
         return result;
     }
 
-
+    @RequestMapping(
+            value = "/adminList",
+            method =RequestMethod.POST
+    )
+    @ResponseBody
+    public Map<String,Object> adminPage(
+            Integer pageSize,
+            Integer pageNumber,
+            String username,
+            String password
+    ){
+        System.out.println("userPage");
+        System.out.println("pageSize " +pageSize);
+        System.out.println("pageNumber" +pageNumber);
+        Map<String, Object> param=new HashMap<String, Object>();
+        param.put("pageSize",pageSize);
+        param.put("pageNumber",(pageNumber-1));
+        Map<String,Object> result = adminServices.findPage(param);
+        return result;
+    }
 
 
 

@@ -2,6 +2,10 @@ package com.cz.lookportnews.repositories;
 
 import com.cz.lookportnews.entity.Channel;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.stereotype.Repository;
 
-public interface ChannelRepository extends JpaRepository<Channel , Long> {
+@Repository
+public interface ChannelRepository extends JpaRepository<Channel , Long> ,
+        JpaSpecificationExecutor<Channel>{
 }

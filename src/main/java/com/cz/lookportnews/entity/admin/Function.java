@@ -46,6 +46,15 @@ public class Function implements Serializable {
 
     private List<Function> subFunctionList;
 
+    private String icon ;
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
 
     @Override
     public int hashCode() {

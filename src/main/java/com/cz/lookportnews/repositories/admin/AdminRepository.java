@@ -39,5 +39,6 @@ public interface AdminRepository extends JpaRepository<Admin,String> {
     Integer authorization(
             @Param("adminName") String adminName , @Param("roleList")  List<Role> roleList);
 
+    
 
 }

@@ -27,7 +27,14 @@ public class NewsServices implements  ILazyMode<News>{
     @Autowired
     NewsRepository repository ;
 
+
     @Transactional
+    public News saveNews(News news) {
+            return repository.save(news);
+    }
+
+
+
     public Response<List<News>> getAllNews(boolean lazyMode){
         List<News> newsList = null;
         newsList=repository.findAll();
@@ -36,7 +43,6 @@ public class NewsServices implements  ILazyMode<News>{
         } else {
             getTypeWithList(newsList);
         }
-
 
         Response<List<News>> response =new Response<>();
         response.setErrorType(ResponseFactory.DeFalutSuccess);

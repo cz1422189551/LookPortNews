@@ -31,6 +31,12 @@ public class News extends MultiMedia {
     private Channel channel;
 
 
+    private Boolean customer;
+
+
+    private String imgUrl;
+
+
     public List<Comment> getComments() {
         return comments;
     }
@@ -39,8 +45,29 @@ public class News extends MultiMedia {
         this.comments = comments;
     }
 
+    public Channel getChannel() {
+        return channel;
+    }
 
+    public void setChannel(Channel channel) {
+        this.channel = channel;
+    }
 
+    public Boolean getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Boolean customer) {
+        this.customer = customer;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 
 
     //@DateTimeFormat(pattern = "yyyy-MM-dd")

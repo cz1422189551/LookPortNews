@@ -810,6 +810,11 @@ button[disabled] {
     border-color: #ddd;
 }
 
+.textarea-content {
+    height: 300px;
+    font-size: 18px;
+}
+
 /*CSS align-items 属性以与justify-content相同的方式在侧轴方向上将当前行上的弹性元素对齐。*/
 /*flex-start  元素向侧轴起点对齐。*/
 

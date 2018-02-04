@@ -46,7 +46,7 @@ public class MyFilter implements Filter {
             //请求无需验证登陆的页面：login.jsp 和fail.jsp则，直接放行
             if(httpRequest.getRequestURI().contains(s))
             {
-                System.out.println(s);
+//                System.out.println(s);
                 filterChain.doFilter(httpRequest, httpResponse);
                 return ;
             }
@@ -57,7 +57,7 @@ public class MyFilter implements Filter {
             filterChain.doFilter(httpRequest, httpResponse);
         } else
         {
-            System.err.println("Session过期重新登陆");
+//            System.err.println("Session过期重新登陆");
             httpResponse.sendRedirect(httpRequest.getContextPath()+"/login.jsp");
         }
 
