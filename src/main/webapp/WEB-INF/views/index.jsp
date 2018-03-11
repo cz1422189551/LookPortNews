@@ -21,6 +21,7 @@
                 document.getElementById("iframe").height=0;
                 document.getElementById("iframe").height=document.getElementById("iframe").contentWindow.document.body.scrollHeight+100;
             }
+
 		</script>
 		<title>首页</title>
 	</head>
@@ -63,42 +64,7 @@
 									</li>
 								</c:forEach>
 							</c:forEach>
-							<%--<li>--%>
-								<%--<a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">--%>
-									<%--<i class="glyphicon glyphicon-cog"></i> 系统管理--%>
-									<%--<span class="pull-right glyphicon glyphicon-chevron-toggle"></span>--%>
-								<%--</a>--%>
-								<%--<ul id="systemSetting" class="nav nav-list collapse secondmenu">--%>
-									<%--<li><a href="<%=basePath%>admin/user" target="mainFrame">--%>
-										<%--<i class="glyphicon glyphicon-user"></i>用户管理</a></li>--%>
-									<%--<li><a href="#"><i class="glyphicon glyphicon-th-list"></i>菜单管理</a></li>--%>
-									<%--<li><a href="#"><i class="glyphicon glyphicon-asterisk"></i>角色管理</a></li>--%>
-									<%--<li><a href="#"><i class="glyphicon glyphicon-edit"></i>修改密码</a></li>--%>
-									<%--<li><a href="#"><i class="glyphicon glyphicon-eye-open"></i>日志查看</a></li>--%>
-								<%--</ul>--%>
-							<%--</li>--%>
 
-							<%--<li>--%>
-								<%--<a href="./plans.html">--%>
-									<%--<i class="glyphicon glyphicon-credit-card"></i> 物料管理--%>
-								<%--</a>--%>
-							<%--</li>--%>
-							<%--<li>--%>
-								<%--<a href="./grid.html">--%>
-									<%--<i class="glyphicon glyphicon-globe"></i> 分发配置--%>
-									<%--<span class="label label-warning pull-right">5</span>--%>
-								<%--</a>--%>
-							<%--</li>--%>
-							<%--<li>--%>
-								<%--<a href="./charts.html">--%>
-									<%--<i class="glyphicon glyphicon-calendar"></i> 图表统计--%>
-								<%--</a>--%>
-							<%--</li>--%>
-							<%--<li>--%>
-								<%--<a href="#">--%>
-									<%--<i class="glyphicon glyphicon-fire"></i> 关于系统--%>
-								<%--</a>--%>
-							<%--</li>--%>
 						</ul>
 					</div>
 
@@ -113,7 +79,7 @@
 			<div class="right_content"/>
 
 			<iframe id="iframe" src="../welcome.jsp" name="mainFrame"
-					width="100%" scrolling="no" height="100%" frameborder="0" onload="iframeLoad()">
+					width="100%" scrolling="no"  frameborder="0" onload="iframeLoad() ">
 
 			</iframe>
 		</div>

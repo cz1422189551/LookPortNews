@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sun.security.tools.keytool.Main;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -22,41 +23,51 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Service("newsServices")
-public class NewsServices implements  ILazyMode<News>{
+public class NewsServices implements ILazyMode<News> {
 
     @Autowired
-    NewsRepository repository ;
+    NewsRepository repository;
 
 
     @Transactional
     public News saveNews(News news) {
-            return repository.save(news);
+        news.setCustomer(true);
+        return repository.save(news);
+    }
+
+    @Transactional
+    public List<News> saveNews(List<News> newsList) {
+        List<News> save = repository.save(newsList);
+        return save;
     }
 
 
+    public List<News> getNewsByChannelName(String channelName) {
+        return repository.findNewsByChanl(channelName, new Date());
+    }
 
-    public Response<List<News>> getAllNews(boolean lazyMode){
+
+    public Response<List<News>> getAllNews(boolean lazyMode) {
         List<News> newsList = null;
-        newsList=repository.findAll();
-        if(lazyMode){
+        newsList = repository.findAll();
+        if (lazyMode) {
             getTypeWithoutList(newsList);
         } else {
             getTypeWithList(newsList);
         }
-
-        Response<List<News>> response =new Response<>();
+        Response<List<News>> response = new Response<>();
         response.setErrorType(ResponseFactory.DeFalutSuccess);
         response.setSuccess(true);
         response.setErrorMessage(ResponseFactory.errorMessage(0));
         response.setResult(newsList);
-        System.out.println("services" +response);
+        System.out.println("services" + response);
         return response;
     }
 
 
     @Override
     public List<News> getTypeWithList(List<News> list) {
-        if(list!=null && list.size()>0){
+        if (list != null && list.size() > 0) {
             for (News news : list) {
                 for (Comment comment : news.getComments()) {
                     comment.toString();
@@ -68,7 +79,7 @@ public class NewsServices implements  ILazyMode<News>{
 
     @Override
     public List<News> getTypeWithoutList(List<News> list) {
-        if(list!=null && list.size()>0){
+        if (list != null && list.size() > 0) {
             for (News news : list) {
                 news.setComments(null);
             }

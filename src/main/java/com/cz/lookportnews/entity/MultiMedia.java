@@ -43,4 +43,6 @@ public class MultiMedia implements Serializable {
     @Column()
     protected Date time;
 
+    protected String editor;
+
 }

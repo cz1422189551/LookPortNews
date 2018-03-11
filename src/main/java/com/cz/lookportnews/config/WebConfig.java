@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -22,6 +23,16 @@ import java.io.IOException;
 @ComponentScan(
         basePackages = "com.cz.lookportnews.controller")
 public class WebConfig extends WebMvcConfigurerAdapter {
+
+
+    @Bean
+    public CommonsMultipartResolver getCommonsMultipartResolver(){
+        CommonsMultipartResolver multipartResolver =new CommonsMultipartResolver();
+       multipartResolver.setDefaultEncoding("utf-8");
+        multipartResolver.setMaxUploadSize(1024*1024*4);
+        multipartResolver.setMaxInMemorySize(1024*1024*4);
+        return multipartResolver;
+    }
 
 
 

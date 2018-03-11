@@ -37,24 +37,24 @@ public class UserRepositoryTest {
     public void testChannel () {
         channelRepository = (ChannelRepository) context.getBean("channelRepository");
 
-        Channel channel = new Channel();
-        channel.setName("NBA");
-        channel.setPrefixUrl("sport");
-        channel.setSuffixUrl("nba");
+//        Channel channel = new Channel();
+//        channel.setName("NBA");
+//        channel.setPrefixUrl("sport");
+//        channel.setSuffixUrl("nba");
+//
+//        Channel channel2 = new Channel();
+//        channel2.setName("CBA");
+//        channel2.setPrefixUrl("sport");
+//        channel2.setSuffixUrl("cba");
+//
+//        Channel parent  = new Channel();
+//        parent.setId(1L);
+//
+//        channel.setChannel(parent);
+//        channel2.setChannel(parent);
 
-        Channel channel2 = new Channel();
-        channel2.setName("CBA");
-        channel2.setPrefixUrl("sport");
-        channel2.setSuffixUrl("cba");
-
-        Channel parent  = new Channel();
-        parent.setId(1L);
-
-        channel.setChannel(parent);
-        channel2.setChannel(parent);
-
-        channelRepository.save(channel);
-        channelRepository.save(channel2);
+//        channelRepository.save(channel);
+//        channelRepository.save(channel2);
 
     }
 
@@ -64,15 +64,11 @@ public class UserRepositoryTest {
 
     @Test
     public void testQuery () {
-        List<News>  news = newsRepository.findAll();
+        List<News>  news = newsRepository.findNewsByChanl("体育",new Date());
         for (News news1 : news) {
-            System.out.println("新闻 ： " +news1);
-            for (Comment comment : news1.getComments()) {
-                System.out.println(comment.getUser().getUsername()+"的评论 ：" +comment.getCommentContent());
-
-            }
-
+            System.out.println("news1 :" +news1);
         }
+
     }
     @Test
     public void testGson () {

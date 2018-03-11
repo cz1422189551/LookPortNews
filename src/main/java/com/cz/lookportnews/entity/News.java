@@ -33,6 +33,8 @@ public class News extends MultiMedia {
 
     private Boolean customer;
 
+    private String pageSource;
+
 
     private String imgUrl;
 
@@ -69,10 +71,25 @@ public class News extends MultiMedia {
         this.imgUrl = imgUrl;
     }
 
+    public String getPageSource() {
+        return pageSource;
+    }
+
+    public void setPageSource(String pageSource) {
+        this.pageSource = pageSource;
+    }
 
     //@DateTimeFormat(pattern = "yyyy-MM-dd")
     //投稿时间
 
 
-
+    @Override
+    public String toString() {
+        return "News{" +
+                "channel=" + channel +
+                ", customer=" + customer +
+                ", pageSource='" + pageSource + '\'' +
+                ", imgUrl='" + imgUrl + '\'' +
+                '}';
+    }
 }

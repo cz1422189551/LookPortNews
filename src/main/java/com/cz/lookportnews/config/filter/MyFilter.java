@@ -36,8 +36,9 @@ public class MyFilter implements Filter {
         HttpServletRequest httpRequest =(HttpServletRequest) servletRequest;
         HttpServletResponse httpResponse =(HttpServletResponse) servletResponse;
         HttpSession session =httpRequest.getSession();
-
-        System.out.println(httpRequest.getRequestURI());
+        httpRequest.setCharacterEncoding("utf-8");
+        httpRequest.setCharacterEncoding("utf-8");
+//        System.out.println(httpRequest.getRequestURI());
 
         String[] params=REGEX.split(";");
         for(String s: params)

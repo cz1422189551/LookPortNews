@@ -42,7 +42,7 @@
                     <form  action = "<%=basePath%>login/admin" name="loginForm"
                           method="post" class="login-from" >
                         <div class="form-group">
-                            <input class="form-control input-lg pd-left-50 login-user  " placeholder="用户名"
+                            <input  class="form-control input-lg pd-left-50 login-user  " placeholder="用户名"
                                    name="adminName"  maxlength="16">
                             <div class="login-user-icon"></div>
                         </div>
